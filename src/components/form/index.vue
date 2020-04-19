@@ -4,11 +4,11 @@
 
         <m-form ref='loginForm' :model='model' :rules='rules' >
             <m-form-item label='用户名' prop='userName'>
-                <m-input v-model='model.userName'></m-input>
+                <m-input v-model='model.userName' placeholder='请输入用户名'></m-input>
             </m-form-item>
 
             <m-form-item label='密码' prop='password'>
-                <m-input type='password' v-model='model.password'></m-input>
+                <m-input type='password' v-model='model.password' placeholder='请输入密码'></m-input>
             </m-form-item>
             
             <m-form-item>
