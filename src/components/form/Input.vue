@@ -33,7 +33,7 @@ export default {
         // 步骤二：传值方式：子——>父
         onInput(e){
             this.$emit('input',e.target.value) //该操作是为了实现v-model
-            this.$parent.$emit('validata')     //该操作是为了在值变动是告诉父组件该校验了
+            this.$parent.$emit('validate')     //该操作是为了在值变动是告诉父组件该校验了
         }
     }
 }

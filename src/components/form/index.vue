@@ -43,7 +43,15 @@ export default {
     },
     methods:{
         // 提交表单操作
-        submitForm(formName){},
+        submitForm(formName){
+            this.$refs[formName].validate(valid=>{
+                if(valid){
+                    console.log('校验通过')
+                }else{
+                    console.log('校验失败')
+                }
+            })
+        },
     },
 }
 </script>

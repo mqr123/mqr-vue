@@ -33,7 +33,7 @@ export default {
     },
     mounted(){
         // 监听子组件是否需要校验
-        this.$on('validata',this.validata)
+        this.$on('validate',this.validate)
     },
     methods:{
         /*
@@ -41,14 +41,14 @@ export default {
          1.子组件Input传入
          2.父组件获取(推荐)
         */
-        validata(){
-            //动态获取数据：父[子]
+        validate(){
+            //动态获取数据：使用计算属性父[子]
             const value = this.form.model[this.prop]
             const rules = this.form.rules[this.prop]
             // 使用第三方库进行校验 npm i async-validator -S
             const desc = {[this.prop]:rules}; //需要校验的对象和规则
             const schema = new Schema(desc);
-            //执行校验方法 返回的是校验结果的Promise
+            //执行校验方法 返回的是校验结果的Promise，外部Form表单关心校验结果
             return schema.validate({[this.prop]:value},err=>{
                 if(err){
                     this.errMsg = err[0].message;
