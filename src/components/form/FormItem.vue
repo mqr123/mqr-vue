@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="form-item">
         <label v-if="label">{{label}}</label>
         <slot></slot>
         <p v-if='errMsg'>{{errMsg}}</p>
@@ -64,7 +64,14 @@ export default {
 </script>
 
 <style scoped>
-
+.form-item{
+    margin-bottom: 15px;
+}
+p{
+    font-size: 12px;
+    color: rgb(248, 66, 66);
+    margin: 0;
+}
 </style>
 
 

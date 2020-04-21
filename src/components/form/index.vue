@@ -20,44 +20,47 @@
 </template>
 
 <script>
-import MForm from './Form';
-import MFormItem from './FormItem';
-import MInput from './Input';
+import MForm from "./Form";
+import MFormItem from "./FormItem";
+import MInput from "./Input";
+import Notice from "@/components/notice/Notice";
+
 export default {
-    components:{
-        MForm,
-        MFormItem,
-        MInput
-    },
-    data(){
-        return{
-            model:{
-                userName:'',
-                password:''
-            },
-            rules:{
-                userName:[{ required: true,message:'请输入用户名'}],
-                password:[{ required: true,password:'请输入密码'}],
-            },
-        }
-    },
-    methods:{
-        // 提交表单操作
-        submitForm(formName){
-            this.$refs[formName].validate(valid=>{
-                if(valid){
-                    console.log('校验通过')
-                }else{
-                    console.log('校验失败')
-                }
-            })
-        },
-    },
-}
+  components: {
+    MForm,
+    MFormItem,
+    MInput
+  },
+  data() {
+    return {
+      model: {
+        userName: "",
+        password: ""
+      },
+      rules: {
+        userName: [{ required: true, message: "请输入用户名" }],
+        password: [{ required: true, message: "请输入密码" }]
+      }
+    };
+  },
+  methods: {
+    // 提交表单操作
+    submitForm(formName) {
+      this.$refs[formName].validate(valid => {
+        // 创建弹窗实例
+        const notice = this.$create(Notice, {
+          title: "校验结果显示弹窗",
+          message: valid ? "校验成功，可以执行登录" : "校验失败",
+          duration: 2000
+        });
+        notice.show();
+      });
+    }
+  }
+};
 </script>
 
 <style scoped>
-
 </style>
 
 

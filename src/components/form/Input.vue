@@ -40,9 +40,9 @@ export default {
 </script>
 
 <style scoped>
-    input{
-        margin-bottom: 15px;
-    }
+input{
+    margin: 10px 0;
+}
 </style>
 
 
