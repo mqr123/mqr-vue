@@ -29,6 +29,7 @@ export default {
                 .map(item=>item.validate()) //执行FormItem的校验方法，返回的是一个Promise数组
             //所有校验任务都通过才算成功
             //注：因为在实际使用中validate传入的是一个回调函数，返回的是一个布尔值，所以在validate校验结果最后会返回一个布尔值
+            //Promise.all([...])方法提供了并行执行异步操作的能力，并且在所有异步操作执行完后并且执行结果都是成功的时候才执行回调。
             Promise.all(tasks).then(()=>{
                 callback(true)
             }).catch(()=>{

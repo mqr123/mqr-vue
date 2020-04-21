@@ -43,12 +43,13 @@ export default {
         */
         validate(){
             //动态获取数据：使用计算属性父[子]
-            const value = this.form.model[this.prop]
-            const rules = this.form.rules[this.prop]
+            const value = this.form.model[this.prop];
+            const rules = this.form.rules[this.prop];
             // 使用第三方库进行校验 npm i async-validator -S
             const desc = {[this.prop]:rules}; //需要校验的对象和规则
             const schema = new Schema(desc);
             //执行校验方法 返回的是校验结果的Promise，外部Form表单关心校验结果
+            //todo:当校验失败时，会返回错误信息，但同时库也会抛出异常报错，没找到解决办法
             return schema.validate({[this.prop]:value},err=>{
                 if(err){
                     this.errMsg = err[0].message;
@@ -56,6 +57,7 @@ export default {
                     this.errMsg = '';
                 }
             })
+            
         }
     }
 }
