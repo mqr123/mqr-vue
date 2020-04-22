@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <MyForm></MyForm>
+    <MyTree></MyTree>
   </div>
 </template>
 
 <script>
 import MyForm from './components/form'
+import MyTree from './components/tree'
 
 export default {
   name: 'App',
   components: {
-    MyForm
+    MyForm,
+    MyTree
   }
 }
 </script>
