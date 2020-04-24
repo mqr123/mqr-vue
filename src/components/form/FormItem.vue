@@ -33,7 +33,10 @@ export default {
     },
     mounted(){
         // 监听子组件是否需要校验
-        this.$on('validate',this.validate)
+        // 注意：这里的this.validate需要使用箭头函数调用，这样就没有返回值了，也就不会在校验失败的时候返回一个promise致使vue报错
+        this.$on('validate',()=>{
+            this.validate();
+        })
     },
     methods:{
         /*
@@ -49,7 +52,6 @@ export default {
             const desc = {[this.prop]:rules}; //需要校验的对象和规则
             const schema = new Schema(desc);
             //执行校验方法 返回的是校验结果的Promise，外部Form表单关心校验结果
-            //todo:当校验失败时，会返回错误信息，但同时库也会抛出异常报错，没找到解决办法
             return schema.validate({[this.prop]:value},err=>{
                 if(err){
                     this.errMsg = err[0].message;

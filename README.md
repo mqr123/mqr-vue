@@ -1,24 +1,11 @@
 # mqr-vue
 
-## Project setup
+## 引入第三方校验库
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm i async-validator -S
 ```
 
-### Compiles and minifies for production
+## 引入vue-router
 ```
-npm run build
+vue add router
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

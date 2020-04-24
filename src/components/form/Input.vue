@@ -12,7 +12,7 @@
         v-model实际上是语法糖，只要input实现一件事，将来在外部使用的时候，就可以直接使用v-model绑定了
     2.派发校验事件
     3.v-bind="$attrs" 作用是继承父类的所有属性 
-    4.语法糖作用：
+    4.语法糖作用(v-model的实现原理)：
         v-model='model.userName'
         等价于
         :value='model.userName' @input='model.userName=$event'
